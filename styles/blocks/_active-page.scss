@@ -1,0 +1,11 @@
+@use '../helpers' as *;
+
+.active-page {
+	font-weight: 500;
+	letter-spacing: 0;
+	color: var(--color-light);
+	background-color: var(--color-dark);
+	border: var(--border);
+	border-radius: fluid(10, 6);
+	pointer-events: none;
+}

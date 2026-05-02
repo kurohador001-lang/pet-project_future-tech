@@ -1,0 +1,80 @@
+@use '../helpers' as *;
+
+.info-card {
+
+	display: grid;
+	row-gap: rem(20);
+	height: 100%;
+
+	@include laptop {
+		row-gap: rem(16);
+	}
+
+	&__image {
+		width: 100%;
+		height: rem(222);
+		object-fit: cover;
+		border-radius: rem(12);
+
+		@include laptop {
+			border-radius: rem(10);
+			height: rem(185);
+		}
+	}
+
+	&__body {
+		display: grid;
+		row-gap: rem(10);
+
+		@include laptop {
+			row-gap: rem(4);
+		}
+	}
+
+	&__extra {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: rem(50);
+	}
+
+	&__button,
+	&__download-button {
+		width: 100%;
+		max-width: rem(300);
+	}
+
+	&--alt {
+		row-gap: fluid(30, 20);
+
+		.info-card {
+			&__image {
+				height: rem(290);
+
+				@include mobile {
+					height: rem(223);
+				}
+			}
+
+			&__body {
+				row-gap: rem(14);
+
+				@include laptop {
+					row-gap: rem(10);
+				}
+			}
+
+			&__extra {
+				column-gap: rem(20);
+
+				@include laptop {
+					column-gap: rem(10);
+				}
+			}
+
+			&__title {
+				@include fluid-text(22, 16)
+			}
+		}
+	}
+}

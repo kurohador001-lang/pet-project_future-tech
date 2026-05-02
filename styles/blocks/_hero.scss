@@ -1,0 +1,141 @@
+@use '../helpers' as *;
+
+.hero {
+	border-bottom: var(--border);
+
+	&__inner {
+		background-color: var(--color-dark);
+
+		@include tablet-above {
+			display: grid;
+			grid-template-columns: 60% auto;
+			grid-template-areas:
+				"body resources-preview"
+				"metrics resources-preview";
+		}
+	}
+
+	&__body {
+		grid-area: body;
+		padding-top: rem(150);
+		padding-bottom: rem(100);
+		padding-right: rem(50);
+
+		@include laptop {
+			padding-top: rem(100);
+			padding-right: rem(40);
+		}
+
+		@include tablet {
+			padding-top: rem(40);
+			padding-bottom: rem(30);
+			padding-right: rem(0);
+		}
+	}
+
+	&__subtitle {
+		font-family: var(--font-family-accent);
+		font-weight: 500;
+		line-height: 120%;
+		color: var(--color-dark-40);
+		margin-bottom: rem(30);
+
+		@include fluid-text(30, 18);
+
+		@include mobile {
+			margin-bottom: rem(14);
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(20);
+
+		@include mobile {
+			margin-bottom: rem(10);
+		}
+	}
+
+	&__metrics {
+		grid-area: metrics;
+		
+		@include tablet-above {
+			border-top: var(--border);
+		}
+		
+		@include tablet {
+			&::before {
+				width: var(--100vw);
+				left: 50%;
+				translate: -50%;
+			}
+		}
+	}
+
+	&__resources-preview {
+		grid-area: resources-preview;
+		padding-left: rem(80);
+		padding-bottom: rem(80);
+		background: url('../images/resources-preview/glow.png') 0 0/cover no-repeat;
+
+		@include tablet-above {
+			border-left: var(--border);
+		}
+
+		@include laptop {
+			padding-left: rem(50);
+			padding-bottom: rem(50);
+		}
+
+		@include tablet {
+			width: var(--100vw);
+			margin-left: calc(var(--container-padding-x) * -1);
+			background: url('../images/resources-preview/glow-tablet.png') 0 0/contain no-repeat;
+			padding-inline: rem(40);
+			padding-bottom: rem(40);
+			padding-top: rem(100);
+		}
+	}
+
+	&__advantages {
+		&-list {
+			@include full-vw-centred-line();
+
+			@include tablet-above {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		&-item {
+			padding-block: rem(50);
+			padding-inline: rem(80);
+
+			&:first-child .advantage-card {
+				padding-left: 0;
+			}
+
+			&:last-child .advantage-card {
+				padding-right: 0;
+			}
+
+			@include tablet-above {
+				&:not(:last-child) {
+					border-right: var(--border);
+				}
+			}
+
+			@include laptop {
+				padding: rem(40) rem(50);
+			}
+
+			@include tablet {
+				padding-block: rem(30);
+				padding-inline: rem(16);
+
+				&:not(:last-child) {
+					border-bottom: var(--border);
+				}
+			}
+		}
+	}
+}

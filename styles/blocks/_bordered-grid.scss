@@ -1,0 +1,132 @@
+@use '../helpers' as *;
+
+.bordered-grid {
+	--columns: 1;
+	--paddingY: #{fluid(80, 40)};
+
+	display: grid;
+	grid-template-columns: repeat(var(--columns), 1fr);
+
+	&--2-cols {
+		--columns: 2;
+		--paddingX: #{rem(80)};
+
+		@include laptop {
+			--paddingX: #{rem(50)};
+		}
+
+		@include mobile-above {
+			.bordered-grid__item {
+				&:nth-child(odd) {
+					padding-right: var(--paddingX);
+					border-right: var(--border);
+				}
+
+				&:nth-child(even) {
+					@include full-vw-centred-line(bottom, auto, 100%, 50%);
+
+					padding-left: var(--paddingX);
+				}
+			}
+		}
+	}
+
+	&--3-cols {
+		--columns: 3;
+		--paddingX: #{rem(50)};
+
+		column-gap: calc(var(--paddingX) * 2);
+
+		@include laptop {
+			--paddingX: #{rem(40)};
+		}
+
+		@include tablet {
+			--columns: 1;
+
+			.bordered-grid__item:not(:last-child) {
+				border-bottom: var(--border);
+			}
+		}
+
+		.bordered-grid__item {
+			@include tablet-above {
+				/**
+					1 и 2 колонки
+				*/
+				&:nth-child(3n - 1),
+				&:nth-child(3n - 2) {
+					position: relative;
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: calc(100% + var(--paddingX));
+						width: rem(1);
+						height: 100%;
+						background-color: var(--color-dark-15);
+					}
+				}
+
+				/**
+					2 колонка без последнего ряда
+				*/
+				&:nth-child(3n - 1):not(:nth-last-child(-n + 3)) {
+					@include full-vw-centred-line(bottom);
+				}
+			}
+		}
+	}
+
+	&--4-cols {
+		--columns: 4;
+		--paddingX: #{rem(50)};
+
+		column-gap: calc(var(--paddingX) * 2);
+
+		@include laptop {
+			--paddingX: #{rem(30)};
+		}
+
+		@include tablet {
+			--columns: 2;
+		}
+
+		@include tablet-above {
+			.bordered-grid__item {
+				/**
+					1, 2, 3 колонки
+				*/
+				&:nth-child(n):not(:nth-last-child(4n - 3)) {
+					position: relative;
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: calc(100% + var(--paddingX));
+						height: 100%;
+						width: rem(1);
+						background-color: var(--color-dark-15);
+					}
+				}
+			}
+		}
+	}
+	
+	&--2-cols,
+	&--4-cols {
+		@include mobile {
+			--columns: 1;
+
+			.bordered-grid__item:not(:last-child) {
+				border-bottom: var(--border);
+			}
+		}
+	}
+
+	&__item {
+		padding-block: var(--paddingY);
+	}
+}

@@ -1,0 +1,47 @@
+@use '../helpers' as *;
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	column-gap: rem(13);
+
+	&::after {
+		--size: #{rem(24)};
+
+		content: '';
+		display: block;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@include square(var(--size));
+
+		@include laptop {
+			--size: #{rem(20)};
+		}
+	}
+
+	&--yellow-arrow {
+		&::after {
+			background-image: url('../icons/yellow-arrow-up.svg');
+
+			--size: #{rem(17)};
+
+			@include laptop {
+				--size: #{rem(14)};
+			}
+		}
+	}
+
+	&--grey-arrow {
+		&::after {
+			background-image: url('../icons/arrow_grey-down.svg');
+		}
+	}
+
+	&--eye {
+		&::after {
+			background-image: url('../icons/yellow-eye.svg');
+		}
+	}
+}
