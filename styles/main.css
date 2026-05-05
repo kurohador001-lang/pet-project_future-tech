@@ -2656,39 +2656,8 @@ a[class] {
   }
 }
 
-.select__original-controls {
-  min-width: 5rem;
-}
-@media (width > 47.99875rem) {
-  .select__original-controls {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    white-space: nowrap !important;
-    clip-path: inset(100%) !important;
-    clip: rect(0 0 0 0) !important;
-    overflow: hidden !important;
-  }
-}
 .select__body {
   position: relative;
-}
-@media (width <= 47.99875rem) {
-  .select__body {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    border: 0 !important;
-    padding: 0 !important;
-    white-space: nowrap !important;
-    clip-path: inset(100%) !important;
-    clip: rect(0 0 0 0) !important;
-    overflow: hidden !important;
-  }
 }
 .select__button, .select__option {
   -webkit-user-select: none;
@@ -2705,6 +2674,8 @@ a[class] {
   align-items: center;
   -moz-column-gap: 0.375rem;
        column-gap: 0.375rem;
+  width: 6.25rem;
+  padding-inline: 1.125rem;
   transition-duration: var(--transition-duration);
 }
 .select__button.is-expanded::after {
@@ -2714,6 +2685,8 @@ a[class] {
   .select__button {
     -moz-column-gap: 0.25rem;
          column-gap: 0.25rem;
+    width: 5rem;
+    padding-inline: 0.75rem;
   }
 }
 .select__button::after {
@@ -2787,6 +2760,14 @@ a[class] {
 }
 .select__option.is-current {
   border-color: var(--color-accent);
+}
+.select__prefix-image {
+  width: 2.125rem;
+}
+@media (width <= 90.06125rem) {
+  .select__prefix-image {
+    width: 1.875rem;
+  }
 }
 
 .checkbox {

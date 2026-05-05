@@ -7,7 +7,6 @@ class Select extends BaseComponent {
 
 	selectors = {
 		root: rootSelector,
-		originalControls: '[data-js-select-original-controls]',
 		button: '[data-js-select-button]',
 		dropdown: '[data-js-select-dropdown]',
 		option: '[data-js-select-option]',
@@ -36,14 +35,17 @@ class Select extends BaseComponent {
 	constructor(rootElement) {
 		super()
 		this.rootElement = rootElement
-		this.originalControlsElement = this.rootElement.querySelector(this.selectors.originalControls)
 		this.buttonElement = this.rootElement.querySelector(this.selectors.button)
 		this.dropdownElement = this.rootElement.querySelector(this.selectors.dropdown)
 		this.optionElements = this.dropdownElement.querySelectorAll(this.selectors.option)
+		this.currentOptionIndex = [...this.optionElements].findIndex( (element) => {
+					return element.classList.contains(this.stateClasses.isCurrent)
+				}
+			)
 		this.state = this.getProxyState({
 			...this.initialState,
-			currentOptionIndex: this.originalControlsElement.selectedIndex,
-			selectedOptionElement: this.optionElements[this.originalControlsElement.selectedIndex],
+			currentOptionIndex: this.currentOptionIndex,
+			selectedOptionElement: this.optionElements[this.currentOptionIndex],
 		})
 
 		this.fixDropDownPosition()
@@ -68,15 +70,6 @@ class Select extends BaseComponent {
 		)
 	}
 
-	updateTabIndexes(isMobile = MatchMedia.mobile.matches) {
-		this.originalControlsElement.tabIndex = isMobile ? 0 : -1
-		this.buttonElement.tabIndex = isMobile ? -1 : 0
-	}
-
-	onMobileUpdateTabIndexes = (event) => {
-		this.updateTabIndexes(event.matches)
-	}
-
 	toggleExpandedState() {
 		this.state.isExpanded = !this.state.isExpanded
 	}
@@ -92,14 +85,10 @@ class Select extends BaseComponent {
 			selectedOptionElement
 		} = this.state
 
-		const newSelectionOptionValue = selectedOptionElement.textContent.trim()
-
-		const updateOriginalControls = () => {
-			this.originalControlsElement.value = newSelectionOptionValue
-		}
+		const newSelectionOptionValue = selectedOptionElement.innerHTML
 
 		const updateButton = () => {
-			this.buttonElement.textContent = newSelectionOptionValue
+			this.buttonElement.innerHTML = newSelectionOptionValue
 			this.buttonElement.classList.toggle(this.stateClasses.isExpanded, isExpanded)
 			this.buttonElement.setAttribute(this.stateAttributes.ariaExpanded, isExpanded)
 			this.buttonElement.setAttribute(this.stateAttributes.ariaActiveDescendant, this.optionElements[currentOptionIndex].id)
@@ -119,7 +108,6 @@ class Select extends BaseComponent {
 			})
 		}
 
-		updateOriginalControls()
 		updateButton()
 		updateDropdown()
 		updateOptions()
@@ -239,16 +227,15 @@ class Select extends BaseComponent {
 		}
 	}
 
-	onOriinalControlsChange = () => {
-		this.state.selectedOptionElement = this.optionElements[this.originalControlsElement.selectedIndex]
+	onMobileSMatchMediaChange = () => {
+		this.fixDropDownPosition()
 	}
 
 	bindEvents() {
-		MatchMedia.mobile.addEventListener('change', this.onMobileUpdateTabIndexes)
 		this.buttonElement.addEventListener('click', this.onButtonClick)
 		document.addEventListener('click', this.onClick)
 		this.rootElement.addEventListener('keydown', this.onKeyDown)
-		this.originalControlsElement.addEventListener('change', this.onOriinalControlsChange)
+		MatchMedia.mobileS.addEventListener('change', this.onMobileSMatchMediaChange)
 	}
 }
 

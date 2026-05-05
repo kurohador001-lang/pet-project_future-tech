@@ -1,19 +1,8 @@
 @use '../helpers' as *;
 
 .select {
-	&__original-controls {
-		min-width: rem(80);
-		@include mobile-above {
-			@include visually-hidden;
-		}
-	}
-
 	&__body {
 		position: relative;
-
-		@include mobile {
-			@include visually-hidden;
-		}
 	}
 
 	&__button,
@@ -31,6 +20,8 @@
 		justify-content: space-between;
 		align-items: center;
 		column-gap: rem(6);
+		width: rem(100);
+		padding-inline: rem(18);
 		transition-duration: var(--transition-duration);
 
 		&.is-expanded {
@@ -41,6 +32,8 @@
 
 		@include laptop {
 			column-gap: rem(4);
+			width: rem(80);
+			padding-inline: rem(12);
 		}
 
 		&::after {
@@ -88,6 +81,8 @@
 
 			scale: 0;
 		}
+
+		
 	}
 
 	&__option {
@@ -114,6 +109,14 @@
 
 		&.is-current {
 			border-color: var(--color-accent);
+		}
+	}
+
+	&__prefix-image {
+		width: rem(34);
+
+		@include laptop {
+			width: rem(30);
 		}
 	}
 }
