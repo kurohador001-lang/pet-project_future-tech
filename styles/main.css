@@ -354,7 +354,7 @@ svg * {
   translate: 0 -50%;
   content: "";
   right: 0;
-  background: url("../icons/dark-arrow-up.svg");
+  background: url("../icons/arrow_dark-up.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--color-accent);
@@ -487,7 +487,7 @@ a[class] {
   }
 }
 .icon--yellow-arrow::after {
-  background-image: url("../icons/yellow-arrow-up.svg");
+  background-image: url("../icons/arrow_yellow-up.svg");
   --size: 1.0625rem;
 }
 @media (width <= 90.06125rem) {
@@ -499,7 +499,7 @@ a[class] {
   background-image: url("../icons/arrow_grey-down.svg");
 }
 .icon--eye::after {
-  background-image: url("../icons/yellow-eye.svg");
+  background-image: url("../icons/eye_yellow.svg");
 }
 
 .button {
@@ -2694,7 +2694,7 @@ a[class] {
   width: var(--size);
   height: var(--size);
   content: "";
-  background: url("../icons/arrow-down__white.svg") center/contain no-repeat;
+  background: url("../icons/arrow_white-down.svg") center/contain no-repeat;
   transition-duration: var(--transition-duration);
 }
 @media (width <= 90.06125rem) {

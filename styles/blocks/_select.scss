@@ -42,7 +42,7 @@
 			@include square(var(--size));
 
 			content: '';
-			background: url('../icons/arrow-down__white.svg') center/contain no-repeat;
+			background: url('../icons/arrow_white-down.svg') center/contain no-repeat;
 			transition-duration: var(--transition-duration);
 
 			@include laptop {

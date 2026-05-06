@@ -23,7 +23,7 @@
 
 	&--yellow-arrow {
 		&::after {
-			background-image: url('../icons/yellow-arrow-up.svg');
+			background-image: url('../icons/arrow_yellow-up.svg');
 
 			--size: #{rem(17)};
 
@@ -41,7 +41,7 @@
 
 	&--eye {
 		&::after {
-			background-image: url('../icons/yellow-eye.svg');
+			background-image: url('../icons/eye_yellow.svg');
 		}
 	}
 }
