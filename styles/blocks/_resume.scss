@@ -1,45 +1,45 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .resume {
-	&__list {
-		display: flex;
-		column-gap: fluid(50, 20);
-	}
+  &__list {
+    display: flex;
+    column-gap: fluid(50, 20);
+  }
 
-	&__item {
-		display: grid;
-		row-gap: rem(4);
+  &__item {
+    display: grid;
+    row-gap: rem(4);
 
-		@include laptop {
-			row-gap: rem(2);
-		}
-	}
+    @include laptop {
+      row-gap: rem(2);
+    }
+  }
 
-	&__value {
-		color: var(--color-light);
-	}
+  &__value {
+    color: var(--color-light);
+  }
 
-	&--2-cols {
-		.resume {
-			&__list {
-				display: grid;
-				gap: rem(30) rem(20);
-				grid-template-columns: repeat(2, 1fr);
+  &--2-cols {
+    .resume {
+      &__list {
+        display: grid;
+        gap: rem(30) rem(20);
+        grid-template-columns: repeat(2, 1fr);
 
-				@include laptop {
-					row-gap: rem(20);
-				}
-			}
+        @include laptop {
+          row-gap: rem(20);
+        }
+      }
 
-			&__item {
-				row-gap: fluid(10, 4);
+      &__item {
+        row-gap: fluid(10, 4);
 
-				&--wide {
-					grid-column: -1 / 1;
-					row-gap: fluid(16, 10);
-					margin-top: rem(20);
-				}
-			}
-		}
-	}
+        &--wide {
+          grid-column: -1 / 1;
+          row-gap: fluid(16, 10);
+          margin-top: rem(20);
+        }
+      }
+    }
+  }
 }

@@ -1,15 +1,15 @@
-@use '../helpers' as *; 
+@use "../helpers" as *;
 
 .slogan {
-	@include fluid-text(20, 14);
+  @include fluid-text(20, 14);
 
-	font-weight: 500;
-	color: var(--color-light);
-	background-color: var(--color-dark-20);
-	padding: rem(6) rem(10);
-	border-radius: rem(4);
+  font-weight: 500;
+  color: var(--color-light);
+  background-color: var(--color-dark-20);
+  padding: rem(6) rem(10);
+  border-radius: rem(4);
 
-	@include laptop {
-		padding: rem(4) rem(8);
-	}
+  @include laptop {
+    padding: rem(4) rem(8);
+  }
 }

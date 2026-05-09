@@ -1,61 +1,64 @@
-import pxToRem from "../utils/pxToRem.js"
+import pxToRem from "../utils/pxToRem.js";
 
-const rootSelector = '[data-js-expandable-content]'
+const rootSelector = "[data-js-expandable-content]";
 
 class ExpandableContent {
-	selectors = {
-		rootSelector: rootSelector,
-		button: '[data-js-expandable-content-button]',
-	}
+  selectors = {
+    rootSelector: rootSelector,
+    button: "[data-js-expandable-content-button]",
+  };
 
-	stateClasses = {
-		isExpanded: 'is-expanded',
-	}
+  stateClasses = {
+    isExpanded: "is-expanded",
+  };
 
-	animationParams = {
-		duration: 500,
-		easing: 'ease',
-	}
+  animationParams = {
+    duration: 500,
+    easing: "ease",
+  };
 
-	constructor(rootElement) {
-		this.rootElement = rootElement
-		this.buttonElement = rootElement.querySelector(this.selectors.button)
-		this.bindEvents()
-	}
+  constructor(rootElement) {
+    this.rootElement = rootElement;
+    this.buttonElement = rootElement.querySelector(this.selectors.button);
+    this.bindEvents();
+  }
 
-	expanded() {
-		const { offsetHeight, scrollHeight } = this.rootElement
+  expanded() {
+    const { offsetHeight, scrollHeight } = this.rootElement;
 
-		this.rootElement.classList.toggle(this.stateClasses.isExpanded)
-		this.rootElement.animate([
-			{
-				maxHeight: `${pxToRem(offsetHeight)}rem`
-			},
-			{
-				maxHeight: `${pxToRem(scrollHeight)}rem`
-			},
-		], this.animationParams)
-	}
+    this.rootElement.classList.toggle(this.stateClasses.isExpanded);
+    this.rootElement.animate(
+      [
+        {
+          maxHeight: `${pxToRem(offsetHeight)}rem`,
+        },
+        {
+          maxHeight: `${pxToRem(scrollHeight)}rem`,
+        },
+      ],
+      this.animationParams,
+    );
+  }
 
-	onButtonClick = () => {
-		this.expanded()
-	}
+  onButtonClick = () => {
+    this.expanded();
+  };
 
-	bindEvents() {
-		this.buttonElement.addEventListener('click', this.onButtonClick)
-	}
+  bindEvents() {
+    this.buttonElement.addEventListener("click", this.onButtonClick);
+  }
 }
 
 class ExpandableContentCollection {
-	constructor() {
-		this.init()
-	}
+  constructor() {
+    this.init();
+  }
 
-	init() {
-		document.querySelectorAll(rootSelector).forEach((element) => {
-			new ExpandableContent(element)
-		})
-	}
+  init() {
+    document.querySelectorAll(rootSelector).forEach((element) => {
+      new ExpandableContent(element);
+    });
+  }
 }
 
-export default ExpandableContentCollection
+export default ExpandableContentCollection;

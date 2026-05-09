@@ -1,41 +1,38 @@
-@use 'helpers' as *;
+@use "helpers" as *;
 
 :root {
-	--color-light: #FFFFFF;
+  --color-light: #ffffff;
 
-	--color-dark: #141414;
-	--color-dark-10: #1A1A1A;
-	--color-dark-15: #262626;
-	--color-dark-20: #333333;
-	--color-dark-40: #666666;
+  --color-dark: #141414;
+  --color-dark-10: #1a1a1a;
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-40: #666666;
 
-	--color-grey-50: #7E7E81;
-	--color-grey-60: #98989A;
+  --color-grey-50: #7e7e81;
+  --color-grey-60: #98989a;
 
-	--color-accent: #FFD11A;
-	--color-yellow-80: #FFEB99;
+  --color-accent: #ffd11a;
+  --color-yellow-80: #ffeb99;
 
-	--color-red: #FF5500;
+  --color-red: #ff5500;
 
+  --font-family-base: "Inter", "sans-serif";
+  --font-family-accent: "Kumbh Sans", "sans-serif";
 
-	--font-family-base: 'Inter', 'sans-serif';
-	--font-family-accent: 'Kumbh Sans', 'sans-serif';
+  --container-width: #{rem(1596)};
+  --container-padding-x: #{rem(16)};
 
+  --shadow: 0 0 0 #{rem(8)} #191919;
 
-	--container-width: #{rem(1596)};
-	--container-padding-x: #{rem(16)};
+  --border: #{rem(1)} solid var(--color-dark-15);
+  --border-accent: #{rem(1)} solid var(--color-accent);
 
-	--shadow: 0 0 0 #{rem(8)} #191919;
+  --100vw: calc(100vw - var(--scrollbar-width));
 
-	--border: #{rem(1)} solid var(--color-dark-15);
-	--border-accent: #{rem(1)} solid var(--color-accent);
+  --transition-duration: 0.2s;
 
-	--100vw: calc(100vw - var(--scrollbar-width));
-
-
-	--transition-duration:  0.2s;
-
-	@include laptop {
-		--container-width: #{rem(1280)};
-	}
+  @include laptop {
+    --container-width: #{rem(1280)};
+  }
 }

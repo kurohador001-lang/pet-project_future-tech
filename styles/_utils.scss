@@ -1,4 +1,4 @@
-@use 'helpers' as *; 
+@use "helpers" as *;
 
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
@@ -23,76 +23,76 @@
 }
 
 .full-vw-line {
-	position: relative;
+  position: relative;
 
-	&::before,
-	&::after {
-		position: absolute;
-		width: calc( (var(--100vw) - var(--container-width)) / 2 );
+  &::before,
+  &::after {
+    position: absolute;
+    width: calc((var(--100vw) - var(--container-width)) / 2);
 
-		height: rem(1);
-		background-color: var(--color-dark-15);
-	}
+    height: rem(1);
+    background-color: var(--color-dark-15);
+  }
 
   &--top {
-	&::before {
-		content: '';
-		bottom: 100%;
-		}
-	}
+    &::before {
+      content: "";
+      bottom: 100%;
+    }
+  }
 
   &--bottom {
-	&::after {
-		content: '';
-		top: 100%;
-		}
-	}
+    &::after {
+      content: "";
+      top: 100%;
+    }
+  }
 
   &--left {
-	&::after,
-	&::before {
-		left: 0;
-		translate: -100%;
-		}
-	}
+    &::after,
+    &::before {
+      left: 0;
+      translate: -100%;
+    }
+  }
 
   &--right {
-	&::after,
-	&::before {
-		right: 0;
-		translate: 100%;
-		}
-	}
+    &::after,
+    &::before {
+      right: 0;
+      translate: 100%;
+    }
+  }
 }
 
 .circle-icon {
-	--circle-icon-size: #{rem(52)};
-	--circle-margin-left: #{rem(20)};
+  --circle-icon-size: #{rem(52)};
+  --circle-margin-left: #{rem(20)};
 
-	position: relative;
-	min-height: var(--circle-icon-size);
-	padding-right: calc(var(--circle-icon-size) + var(--circle-margin-left));
+  position: relative;
+  min-height: var(--circle-icon-size);
+  padding-right: calc(var(--circle-icon-size) + var(--circle-margin-left));
 
-	@include laptop {
-		--circle-icon-size: #{rem(44)};
-		--circle-margin-left: #{rem(14)};
-	}
+  @include laptop {
+    --circle-icon-size: #{rem(44)};
+    --circle-margin-left: #{rem(14)};
+  }
 
-	@include tablet {
-		--circle-icon-size: #{rem(40)};
-	}
+  @include tablet {
+    --circle-icon-size: #{rem(40)};
+  }
 
-	&::after {
-		@include square(var(--circle-icon-size));
-		@include abs-y;
+  &::after {
+    @include square(var(--circle-icon-size));
+    @include abs-y;
 
-		content: '';
-		right: 0;
-		background: url('../icons/arrow_dark-up.svg');
-		background-position: center;
-		background-repeat: no-repeat;
-		background-color: var(--color-accent);
-		border-radius: 50%;
-		transition-duration: var(--transition-duration);
-	}
+    content: "";
+    right: 0;
+    background: url("../icons/arrow_dark-up.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    transition-duration: var(--transition-duration);
+  }
 }

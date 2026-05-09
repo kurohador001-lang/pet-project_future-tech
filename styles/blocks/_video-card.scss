@@ -1,24 +1,24 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .video-card {
-	display: grid;
-	row-gap: rem(30);
+  display: grid;
+  row-gap: rem(30);
 
-	@include laptop {
-		row-gap: rem(20);
-	}
+  @include laptop {
+    row-gap: rem(20);
+  }
 
-	&__body {
-		display: grid;
-		row-gap: fluid(10, 4);
-	}
+  &__body {
+    display: grid;
+    row-gap: fluid(10, 4);
+  }
 
-	&__link {
-		justify-self: start;
+  &__link {
+    justify-self: start;
 
-		@include mobile {
-			width: 100%;
-			max-width: rem(500);
-		}
-	}
+    @include mobile {
+      width: 100%;
+      max-width: rem(500);
+    }
+  }
 }

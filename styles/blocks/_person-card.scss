@@ -1,42 +1,42 @@
-@use '../helpers' as *; 
+@use "../helpers" as *;
 
 .person-card {
-	--person-size: #{rem(80)};
-	--person-name-weight: 600;
+  --person-size: #{rem(80)};
+  --person-name-weight: 600;
 
-	display: flex;
-	align-items: center;
-	column-gap: fluid(16, 8);
+  display: flex;
+  align-items: center;
+  column-gap: fluid(16, 8);
 
-	&__image {
-		width: var(--person-size);
-		background-color: var(--color-dark-15);
-		border-radius: 50%;
+  &__image {
+    width: var(--person-size);
+    background-color: var(--color-dark-15);
+    border-radius: 50%;
 
-		@include laptop {
-			--person-size: #{rem(60)};
-		}
-	}
+    @include laptop {
+      --person-size: #{rem(60)};
+    }
+  }
 
-	&__body {
-		display: grid;
+  &__body {
+    display: grid;
 
-		@include laptop-above {
-			row-gap: rem(2);
-		}
-	}
+    @include laptop-above {
+      row-gap: rem(2);
+    }
+  }
 
-	&__name {
-		color: var(--color-light);
-		font-weight: var(--person-name-weight);
-		font-size: rem(20);
+  &__name {
+    color: var(--color-light);
+    font-weight: var(--person-name-weight);
+    font-size: rem(20);
 
-		@include laptop {
-			font-size: rem(18);
-		}
-	}
+    @include laptop {
+      font-size: rem(18);
+    }
+  }
 
-	&__departmemt {
-		color: var(--color-grey-60);
-	}
+  &__departmemt {
+    color: var(--color-grey-60);
+  }
 }

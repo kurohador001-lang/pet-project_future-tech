@@ -1,7 +1,7 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .contacts {
-	&__body {
-		border-block: var(--border);
-	}
+  &__body {
+    border-block: var(--border);
+  }
 }

@@ -1,52 +1,49 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .hero-alt {
-	&__header {
-		padding-top: fluid(130, 40);
-		padding-bottom: fluid(150, 40);
-		border-bottom: var(--border);
+  &__header {
+    padding-top: fluid(130, 40);
+    padding-bottom: fluid(150, 40);
+    border-bottom: var(--border);
 
-		&-inner {
-			display: grid;
-			grid-template-columns: auto 1fr;
-			gap: rem(20) rem(80);
-			align-items: center;
+    &-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: rem(20) rem(80);
+      align-items: center;
 
-			@include mobile-above {
-				grid-template-columns: auto 1fr;
-			}
+      @include mobile-above {
+        grid-template-columns: auto 1fr;
+      }
 
-			@include laptop {
-				column-gap: rem(60);
-			}
+      @include laptop {
+        column-gap: rem(60);
+      }
 
-			@include mobile {
-				row-gap: rem(14);
-			}
-		}
-	}
+      @include mobile {
+        row-gap: rem(14);
+      }
+    }
+  }
 
-	&__title {
-		grid-column: 1 / -1;
+  &__title {
+    grid-column: 1 / -1;
 
-		&-hidden-piece {
-			@include mobile-above {
-				@include visually-hidden;
-			}
-		}
-	}
+    &-hidden-piece {
+      @include mobile-above {
+        @include visually-hidden;
+      }
+    }
+  }
 
-	&__news-cards {
-		padding-block: fluid(80, 30);
-		border-bottom: var(--border);
+  &__news-cards {
+    padding-block: fluid(80, 30);
+    border-bottom: var(--border);
 
-		&-list {
-			display: grid;
-			grid-template-columns: repeat(
-				auto-fit,
-				minmax(rem(358), 1fr)
-			);
-			gap: rem(30);
-		}
-	}
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(rem(358), 1fr));
+      gap: rem(30);
+    }
+  }
 }

@@ -1,5 +1,5 @@
 const pxToRem = (pixels) => {
-	return pixels / 16
-}
+  return pixels / 16;
+};
 
-export default pxToRem
+export default pxToRem;

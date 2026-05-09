@@ -1,127 +1,128 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .blog-details {
-	&__header {
-		display: flex;
-		align-items: end;
-		text-align: center;
-		min-height: fluid(598, 281);
-		padding-block: fluid(65, 17);
-		background:
-			linear-gradient(
-				180deg,
-				rgba(20, 20, 20, 0) 0%,
-				rgba(20, 20, 20, 0.88) 75.52%,
-				#141414 100%
-			),
-			url('../images/blog-details/image.jpg') center/cover no-repeat;
-	}
+  &__header {
+    display: flex;
+    align-items: end;
+    text-align: center;
+    min-height: fluid(598, 281);
+    padding-block: fluid(65, 17);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(20, 20, 20, 0) 0%,
+        rgba(20, 20, 20, 0.88) 75.52%,
+        #141414 100%
+      ),
+      url("../images/blog-details/image.jpg") center/cover no-repeat;
+  }
 
-	&__title {
-		@include fluid-text(64, 28);
+  &__title {
+    @include fluid-text(64, 28);
 
-		font-weight: 600;
-		font-family: var(--font-family-base);
-	}
+    font-weight: 600;
+    font-family: var(--font-family-base);
+  }
 
-	&__body {
-		border-block: var(--border);
-		
-		&-inner {
-			display: grid;
-			grid-template-columns: 1fr rem(520);
+  &__body {
+    border-block: var(--border);
 
-			@include tablet {
-				display: flex;
-				flex-direction: column-reverse;
-			}
-		}
+    &-inner {
+      display: grid;
+      grid-template-columns: 1fr rem(520);
 
-		&-main {
-			@include tablet-above {
-				border-right: var(--border);
-			}
-		}
+      @include tablet {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
 
-		h2, h3, h4, h5, h6 {
-			&:not(:last-child) {
-				margin-bottom: 0.7em;
-			}
+    &-main {
+      @include tablet-above {
+        border-right: var(--border);
+      }
+    }
 
-			&:not(:first-child) {
-				margin-top: 1.2em;
-			}
-		}
-	}
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:last-child) {
+        margin-bottom: 0.7em;
+      }
 
-	&__intro,
-	&__expandable-content,
-	&__actions,
-	&__resume {
-		padding: fluid(80, 40) rem(80);
+      &:not(:first-child) {
+        margin-top: 1.2em;
+      }
+    }
+  }
 
-		@include laptop {
-			padding-inline: rem(60);
-		}
+  &__intro,
+  &__expandable-content,
+  &__actions,
+  &__resume {
+    padding: fluid(80, 40) rem(80);
 
-		@include tablet {
-			padding-inline: 0;
-		}
-	}
+    @include laptop {
+      padding-inline: rem(60);
+    }
 
-	&__resume {
-		@include tablet {
-			justify-self: start;
-		}
-	}
+    @include tablet {
+      padding-inline: 0;
+    }
+  }
 
-	&__actions {
-		padding-block: fluid(50, 20);
+  &__resume {
+    @include tablet {
+      justify-self: start;
+    }
+  }
 
-		@include tablet {
-			display: flex;
-			justify-content: center;
-		}
-	}
+  &__actions {
+    padding-block: fluid(50, 20);
 
-	&__intro,
-	&__actions {
-		@include tablet-above {
-			border-bottom: var(--border);
-		}
-	}
+    @include tablet {
+      display: flex;
+      justify-content: center;
+    }
+  }
 
-	&__intro,
-	&__actions,
-	&__resume {
-		@include tablet {
-			@include full-vw-centred-line(bottom);
-		}
-	}
+  &__intro,
+  &__actions {
+    @include tablet-above {
+      border-bottom: var(--border);
+    }
+  }
 
-	&__expandable-content {
-		--maxInitialHeight: #{rem(741)};
+  &__intro,
+  &__actions,
+  &__resume {
+    @include tablet {
+      @include full-vw-centred-line(bottom);
+    }
+  }
 
-		@include laptop {
-			--maxInitialHeight: #{rem(692)};
-		}
+  &__expandable-content {
+    --maxInitialHeight: #{rem(741)};
 
-		@include mobile {
-			--maxInitialHeight: #{rem(669)};
-		}
-	}
+    @include laptop {
+      --maxInitialHeight: #{rem(692)};
+    }
 
-	&__news-cards {
-		padding-block: fluid(80, 30);
-		border-bottom: var(--border);
+    @include mobile {
+      --maxInitialHeight: #{rem(669)};
+    }
+  }
 
-		&-list {
-			display: grid;
-			grid-template-columns: repeat(
-				auto-fit,
-				minmax(rem(358), 1fr)
-			);
-			gap: rem(30);
-		}
-	}
+  &__news-cards {
+    padding-block: fluid(80, 30);
+    border-bottom: var(--border);
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(rem(358), 1fr));
+      gap: rem(30);
+    }
+  }
 }

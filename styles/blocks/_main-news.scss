@@ -1,45 +1,45 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .main-news {
-	display: grid;
-	gap: fluid(80, 30);
-	align-items: center;
-	padding-block: fluid(80, 40);
+  display: grid;
+  gap: fluid(80, 30);
+  align-items: center;
+  padding-block: fluid(80, 40);
 
-	@include mobile-above {
-		grid-template-columns: 32% 1fr;
-	}
+  @include mobile-above {
+    grid-template-columns: 32% 1fr;
+  }
 
-	&__image {
-		width: 100%;
-		height: fluid(427, 213);
-		object-fit: cover;
-		border-radius: rem(12);
-	}
+  &__image {
+    width: 100%;
+    height: fluid(427, 213);
+    object-fit: cover;
+    border-radius: rem(12);
+  }
 
-	@include laptop {
-		border-radius: rem(10);
-	}
+  @include laptop {
+    border-radius: rem(10);
+  }
 
-	&__body {
-		display: grid;
-		row-gap: fluid(50, 20);
-	}
+  &__body {
+    display: grid;
+    row-gap: fluid(50, 20);
+  }
 
-	&__info {
-		row-gap: fluid(30, 6);
-	}
+  &__info {
+    row-gap: fluid(30, 6);
+  }
 
-	&__title {
-		@include fluid-text(32, 20);
+  &__title {
+    @include fluid-text(32, 20);
 
-		font-family: var(--font-family-base);
-		font-weight: 600;
-	}
+    font-family: var(--font-family-base);
+    font-weight: 600;
+  }
 
-	&__extra {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+  &__extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

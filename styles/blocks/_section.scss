@@ -1,47 +1,47 @@
-@use '../helpers' as *; 
+@use "../helpers" as *;
 
 .section {
-	&__header {
-		background-color: var(--color-dark-10);
-		padding-block: fluid(120, 40);
+  &__header {
+    background-color: var(--color-dark-10);
+    padding-block: fluid(120, 40);
 
-		&-inner {
-			&:has(.section__actions) {
-				display: grid;
-				align-items: center;
-				column-gap: 1rem;
+    &-inner {
+      &:has(.section__actions) {
+        display: grid;
+        align-items: center;
+        column-gap: 1rem;
 
-				@include tablet-above {
-					grid-template-columns: 1fr auto;
-				}
+        @include tablet-above {
+          grid-template-columns: 1fr auto;
+        }
 
-				@include tablet {
-					row-gap: rem(30);
-				}
-			}
-		}
+        @include tablet {
+          row-gap: rem(30);
+        }
+      }
+    }
 
-		&-subtitle {
-			justify-self: start;
-		}
+    &-subtitle {
+      justify-self: start;
+    }
 
-		&-info {
-			display: grid;
-			align-items: start;
-			row-gap: rem(16);
-		}
+    &-info {
+      display: grid;
+      align-items: start;
+      row-gap: rem(16);
+    }
 
-		@include laptop {
-			row-gap: rem(10);
-		}
-	}
+    @include laptop {
+      row-gap: rem(10);
+    }
+  }
 
-	&__body {
-		border-block: var(--border);
-	}
+  &__body {
+    border-block: var(--border);
+  }
 
-	&__link {
-		max-width: rem(360);
-		width: 100%;
-	}
+  &__link {
+    max-width: rem(360);
+    width: 100%;
+  }
 }

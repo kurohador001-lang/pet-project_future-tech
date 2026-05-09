@@ -1,58 +1,58 @@
-@use '../helpers' as *; 
+@use "../helpers" as *;
 
 .actions {
-	&__list{
-		display: flex;
-		justify-content: start;
-		column-gap: rem(10);
+  &__list {
+    display: flex;
+    justify-content: start;
+    column-gap: rem(10);
 
-		@include laptop {
-			column-gap: rem(8);
-		}
-	}
+    @include laptop {
+      column-gap: rem(8);
+    }
+  }
 
-	&__button {
-		display: inline-flex;
-		align-items: center;
-		column-gap: rem(4);
-		padding: rem(8) rem(16);
-		border: var(--border);
-		border-radius: rem(100);
-		background-color: var(--color-dark-10);
-		color: var(--color-grey-60);
-		font-family: "Kumbh Sans";
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    column-gap: rem(4);
+    padding: rem(8) rem(16);
+    border: var(--border);
+    border-radius: rem(100);
+    background-color: var(--color-dark-10);
+    color: var(--color-grey-60);
+    font-family: "Kumbh Sans";
 
-		@include laptop {
-			padding: rem(6) rem(12);
-			column-gap: rem(2);
-		}
+    @include laptop {
+      padding: rem(6) rem(12);
+      column-gap: rem(2);
+    }
 
-		&.is-active {
-			svg * {
-				fill: var(--color-red);
-				stroke: var(--color-red);
-			}
-		}
-	}
+    &.is-active {
+      svg * {
+        fill: var(--color-red);
+        stroke: var(--color-red);
+      }
+    }
+  }
 
-	&__icon-wrapper {
-		--size: #{rem(24)};
+  &__icon-wrapper {
+    --size: #{rem(24)};
 
-		display: flex;
-		align-items: center;
+    display: flex;
+    align-items: center;
 
-		@include square(var(--size));
+    @include square(var(--size));
 
-		@include laptop {
-			--size: #{rem(20)};
-		}
+    @include laptop {
+      --size: #{rem(20)};
+    }
 
-		svg {
-			@include square(100%);
+    svg {
+      @include square(100%);
 
-			* {
-				fill: transparent;
-			}
-		}
-	}
+      * {
+        fill: transparent;
+      }
+    }
+  }
 }

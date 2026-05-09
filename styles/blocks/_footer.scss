@@ -1,103 +1,101 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .footer {
-	color: var(--color-dark-40);
+  color: var(--color-dark-40);
 
-	&__menu {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		align-items: start;
-		column-gap: fluid(80, 20);
-		padding-block: fluid(80, 40);
-		border-bottom: var(--border);
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+    column-gap: fluid(80, 20);
+    padding-block: fluid(80, 40);
+    border-bottom: var(--border);
 
-		@include tablet {
-			grid-template-columns: repeat(2, 1fr);
-			gap: rem(40);
-		}
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(40);
+    }
 
-		@include mobile {
-			gap: rem(20);
-		}
+    @include mobile {
+      gap: rem(20);
+    }
 
-		&-column {
-			display: flex;
-			flex-direction: column;
-			row-gap: fluid(36, 16);
+    &-column {
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(36, 16);
 
-			@include tablet {
-				&:last-child {
-					grid-column: -1 / 1;
+      @include tablet {
+        &:last-child {
+          grid-column: -1 / 1;
 
-					.footer__menu-list {
-						flex-direction: row;
-						gap: rem(12);
-						flex-wrap: wrap;
-					}
-					
-				}
-			}
-		}
+          .footer__menu-list {
+            flex-direction: row;
+            gap: rem(12);
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
 
-		&-list {
-			display: flex;
-			flex-direction: column;
-			row-gap: fluid(18, 8);
-		}
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(18, 8);
+    }
 
-		&-item {
-			display: flex;
-			align-items: center;
-			column-gap: rem(8);
-		}
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: rem(8);
+    }
 
-		&-title {
-			font-weight: 500;
-		}
-	}
+    &-title {
+      font-weight: 500;
+    }
+  }
 
-	&__extra {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		column-gap: 3rem;  // юзани вместо флекс-битвин грид (3, 1фр) чтобы не было проблемы со сжатием на таблете.
-		padding-block: rem(40);
+  &__extra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 3rem; // юзани вместо флекс-битвин грид (3, 1фр) чтобы не было проблемы со сжатием на таблете.
+    padding-block: rem(40);
 
-		@include laptop {
-			padding-block: rem(24);
-		}
+    @include laptop {
+      padding-block: rem(24);
+    }
 
-		@include mobile {
-			flex-direction: column;
-			row-gap: rem(20);
-		}
+    @include mobile {
+      flex-direction: column;
+      row-gap: rem(20);
+    }
 
-		&-about {
-			&-list {
-				display: flex;
-			}
+    &-about {
+      &-list {
+        display: flex;
+      }
 
+      &-item:not(:last-child) {
+        .footer__extra-about-link::after {
+          content: "";
+          display: block;
+          width: rem(1);
+          height: rem(23);
+          background-color: var(--color-dark-15);
+          margin-inline: rem(11);
 
-			&-item:not(:last-child) {
-				.footer__extra-about-link::after {
-					content: '';
-					display: block;
-					width: rem(1);
-					height: rem(23);
-					background-color: var(--color-dark-15);
-					margin-inline: rem(11);
+          @include laptop {
+            height: rem(18);
+          }
+        }
+      }
+    }
 
-					@include laptop {
-						height: rem(18);
-					}
-				}
-			}
-		}
-
-		&-soc1als {
-			@include mobile {
-				order: -1;
-			}
-		}
-	}
+    &-soc1als {
+      @include mobile {
+        order: -1;
+      }
+    }
+  }
 }

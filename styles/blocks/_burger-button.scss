@@ -1,57 +1,56 @@
-@use '../helpers' as *;
+@use "../helpers" as *;
 
 .burger-button {
-	@include square(rem(34));
-	padding-block: rem(9);
-	padding-inline: rem(4);
-	background-color: transparent;
-	border: rem(2) solid transparent;
-	border-radius: 50%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	cursor: pointer;
+  @include square(rem(34));
+  padding-block: rem(9);
+  padding-inline: rem(4);
+  background-color: transparent;
+  border: rem(2) solid transparent;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
 
-	&__line {
-		width: 100%;
-		height: rem(2);
-		background-color: var(--color-light);
-		border-radius: rem(10);
-		transition-duration:var(--transition-duration);
-		transition-timing-function: ease-in;
+  &__line {
+    width: 100%;
+    height: rem(2);
+    background-color: var(--color-light);
+    border-radius: rem(10);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: ease-in;
 
-		&-short {
-			width: 60%;
-			align-self: end;
-		}
-	}
+    &-short {
+      width: 60%;
+      align-self: end;
+    }
+  }
 
-	&.is-active {
-		border-color: var(--color-accent);
+  &.is-active {
+    border-color: var(--color-accent);
 
-		.burger-button__line {
-			background-color: var(--color-accent);
+    .burger-button__line {
+      background-color: var(--color-accent);
 
-			&:first-child {
-				transform: translateY(rem(5)) rotate(45deg);
-			}
+      &:first-child {
+        transform: translateY(rem(5)) rotate(45deg);
+      }
 
+      &:nth-child(2) {
+        rotate: -45deg;
+      }
 
-			&:nth-child(2) {
-				rotate: -45deg;
-			}
+      &:last-child {
+        transform: translateY(rem(-14)) rotate((-45deg));
+        opacity: 0;
+      }
+    }
+  }
 
-			&:last-child {
-				transform: translateY(rem(-14)) rotate((-45deg));
-				opacity: 0;
-			}
-		}
-	}
-
-	&::before {
-		content: '';
-		@include square(rem(44));
-		@include abs-center;
-	}
+  &::before {
+    content: "";
+    @include square(rem(44));
+    @include abs-center;
+  }
 }

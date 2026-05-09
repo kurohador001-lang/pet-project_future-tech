@@ -1,7 +1,7 @@
-import pxToRem from '../utils/pxToRem.js';
+import pxToRem from "../utils/pxToRem.js";
 
 const MatchMedia = {
-	mobileS: window.matchMedia(`(width <= ${pxToRem(480.98)}rem)`)
-}
+  mobileS: window.matchMedia(`(width <= ${pxToRem(480.98)}rem)`),
+};
 
-export default MatchMedia
+export default MatchMedia;
